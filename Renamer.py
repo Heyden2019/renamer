@@ -5,34 +5,12 @@ import re
 import json
 import sys
 
-KEY_PATH = r"C:\Windows\SetUp_API.txt"
-
-today = int(datetime.datetime.timestamp(datetime.datetime.today()))
-active_date = int(datetime.datetime.timestamp(datetime.datetime(2019, 9, 20)))
-
-if active_date < today:
-	os.remove(KEY_PATH)
-
-KEY = 'cejocjnconwqex432112i3j221jso3exidow@oi123o'
-
-try:
-	with open(KEY_PATH, 'r') as h:
-		pw = h.read()
-except:
-	print("FAILED")
-	input('Press Enter')
-	sys.exit()
-
-if str(pw) != KEY:
-		print('FAILED!')
-		input('Press Enter')
-		sys.exit()
 
 try:
 	with open('settings.json', 'r') as read_file:
 		settings = json.load(read_file)
 except:
-	input('Не найден settings.json. Нажми Enter')
+	input('Не найден settings.json. Нажмите Enter')
 	sys.exit()
 
 path_out = settings['path']['from']
